@@ -1,0 +1,26 @@
+cmake_minimum_required( VERSION 3.5  )
+set(CMAKE_SYSTEM_NAME Windows )
+
+message("============================================================Set Clang==================================================================")
+ 
+#SET (CMAKE_C_COMPILER             "D:/Program Files/LLVM/bin/clang.exe")
+SET (CMAKE_C_COMPILER             "Clang")
+SET (CMAKE_C_FLAGS                "-Wall -std=c11")
+SET (CMAKE_C_FLAGS_DEBUG          "-g")
+SET (CMAKE_C_FLAGS_MINSIZEREL     "-Os -DNDEBUG")
+SET (CMAKE_C_FLAGS_RELEASE        "-O4 -DNDEBUG")
+SET (CMAKE_C_FLAGS_RELWITHDEBINFO "-O2 -g")
+ 
+#SET (CMAKE_CXX_COMPILER             "D:/Program Files/LLVM/bin/clang++.exe")
+SET (CMAKE_CXX_COMPILER             "Clang++")
+SET (CMAKE_CXX_FLAGS                "-Wall -std=c++11")
+#SET (CMAKE_CXX_FLAGS_DEBUG          "-g")
+#SET (CMAKE_CXX_FLAGS_MINSIZEREL     "-Os -DNDEBUG")
+#SET (CMAKE_CXX_FLAGS_RELEASE        "-O4 -DNDEBUG")
+#SET (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
+ 
+SET (CMAKE_AR      "D:/Program Files/LLVM/bin/llvm-ar.exe")
+SET (CMAKE_LINKER  "D:/Program Files/LLVM/bin/llvm-lib.exe")
+SET (CMAKE_NM      "D:/Program Files/LLVM/bin/llvm-nm.exe")
+SET (CMAKE_OBJDUMP "D:/Program Files/LLVM/bin/llvm-objdump.exe")
+SET (CMAKE_RANLIB  "D:/Program Files/LLVM/bin/llvm-ranlib.exe")
