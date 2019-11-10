@@ -1,0 +1,14 @@
+ninja_required_version = 1.3
+ 
+#variable
+cc = clang++
+cflags = -Wall
+
+# rule
+rule cc
+    command = clang++ $cflags -c $in -o $out
+    description = demo_ninja_main.cpp
+ 
+# build
+#clang -g -O2 -o log ffmpeg_log.c -I …/ffmpeg -L …/ffmpeg/libavutil -lavutil
+build demo_ninja_main.o: cc demo_ninja_main.cpp
