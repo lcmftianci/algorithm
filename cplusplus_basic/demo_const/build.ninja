@@ -1,14 +1,32 @@
 ninja_required_version = 1.3
- 
+
 #variable
 cc = clang++
-cflags = -Wall
+cflags = -Wall -g -c -std=c++14 
 
-# rule
-rule cc
-    command = clang++ $cflags -c $in -o $out
-    description = demo_ninja_main.cpp
- 
-# build
+#rule
+#rule cc
+#    command = clang++ $cflags -c $in -o $out
+#    description = demo_ninja_main.cpp
+#build
 #clang -g -O2 -o log ffmpeg_log.c -I …/ffmpeg -L …/ffmpeg/libavutil -lavutil
-build demo_ninja_main.o: cc demo_ninja_main.cpp
+#build demo_ninja_main.o: cc demo_ninja_main.cpp
+    
+rule cc
+    command = $cc $cflags $in  -I./ffmpeg/include -o $out
+rule link
+    command = $cc $in  -L./ffmpeg/lib -lavutil -lavcodec -lavformat -lavdevice -lswscale -lswresample  -o $out
+rule cleanup
+    #command = rm -rf *.exe *.o
+    #command = rd /s/q build
+    #command = del demo_ninja_main.o
+    command = clean.bat
+
+build demo_ninja_main.o           : cc demo_ninja_main.cpp
+build demo_ninja_const.o           : cc demo_ninja_const.cpp
+build demo_ninja_player.o           : cc demo_ninja_player.cpp
+
+build demo_const.exe            : link demo_ninja_main.o demo_ninja_const.o demo_ninja_player.o
+
+build all : phony || demo_const.exe
+build clean : cleanup
