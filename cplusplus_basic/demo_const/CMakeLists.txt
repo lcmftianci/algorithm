@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5 )
+
 #${PROJECT_SOURCE_DIR}/
-include(windows.toolchain.cmake) 
+#include(windows.toolchain.cmake) 
 
 project(demo_ninja)
 
