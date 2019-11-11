@@ -26,7 +26,7 @@ build demo_ninja_main.o           : cc demo_ninja_main.cpp
 build demo_ninja_const.o           : cc demo_ninja_const.cpp
 build demo_ninja_player.o           : cc demo_ninja_player.cpp
 
-build demo_const.exe            : link demo_ninja_main.o demo_ninja_const.o demo_ninja_player.o
+build .\bin\demo_const.exe            : link demo_ninja_main.o demo_ninja_const.o demo_ninja_player.o
 
-build all : phony || demo_const.exe
+build all : phony || .\bin\demo_const.exe
 build clean : cleanup
